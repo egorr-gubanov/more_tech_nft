@@ -1,0 +1,69 @@
+.sidebar {
+    width: 250px;
+    background-color: #2d2d2d;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+    z-index: 1000; /* Устанавливаем z-index чтобы sidebar был сверху при раскрытии на мобильных */
+}
+
+/* Стиль для ссылок */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.sidebar-link:hover {
+    background-color: #424242;
+    transform: translateX(5px);
+}
+
+.sidebar-link:active {
+    background-color: #1c1c1c;
+}
+
+/* Для мобильных экранов скрываем sidebar по умолчанию */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar.open {
+        width: 250px;
+    }
+}
+
+/* Кнопка открытия sidebar для маленьких экранов */
+.lg:hidden {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .lg:hidden {
+        display: block;
+    }
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}

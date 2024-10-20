@@ -1,0 +1,76 @@
+/* Register.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Высота на 100% */
+    width: 100%;
+    background-color: #f7f7f7; /* Фон для улучшения визуального восприятия */
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Ширина формы 90% от ширины экрана */
+    max-width: 400px; /* Максимальная ширина формы для больших экранов */
+    margin: 20px; /* Отступы вокруг формы */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.button {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .title {
+        font-size: 20px; /* Уменьшаем размер заголовка на мобильных */
+    }
+
+    .input {
+        font-size: 16px; /* Увеличиваем размер шрифта ввода */
+    }
+
+    .button {
+        font-size: 18px; /* Увеличиваем размер шрифта кнопки */
+    }
+}
