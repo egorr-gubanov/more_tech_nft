@@ -1,76 +1,29 @@
-/* Register.css */
-.container {
+/* Register/Login */
+.registerlogin {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f51111;
+    width: 100vh;
+    z-index: 1000;
+}
+
+/* Основной контейнер */
+.app-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Высота на 100% */
-    width: 100%;
-    background-color: #f7f7f7; /* Фон для улучшения визуального восприятия */
+    min-height: 100vh; /* Занимаем всю высоту экрана */
 }
 
-.form-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Ширина формы 90% от ширины экрана */
-    max-width: 400px; /* Максимальная ширина формы для больших экранов */
-    margin: 20px; /* Отступы вокруг формы */
+/* Контент растягивается на всю оставшуюся ширину */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* С учётом ширины sidebar */
+    background-color: #f7f7f7;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.button {
-    width: 100%;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .title {
-        font-size: 20px; /* Уменьшаем размер заголовка на мобильных */
-    }
-
-    .input {
-        font-size: 16px; /* Увеличиваем размер шрифта ввода */
-    }
-
-    .button {
-        font-size: 18px; /* Увеличиваем размер шрифта кнопки */
+/* Для маленьких экранов убираем отступ слева */
+@media (max-width: 1024px) {
+    .content {
+        margin-left: 0;
     }
 }

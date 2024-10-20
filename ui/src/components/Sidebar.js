@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaUser, FaTrophy, FaUsers, FaCog, FaBars } from 'react-icons/fa';
 import './Sidebar.css';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation(); // Получаем текущий маршрут
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
 
+    // Скрываем сайдбар при изменении маршрута
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location]);
+
     return (
         <>
-            <button className="lg:hidden text-2xl text-white p-4 focus:outline-none" onClick={toggleSidebar}>
+            <button className="sidebar-toggle lg:hidden text-2xl text-white p-4 focus:outline-none" onClick={toggleSidebar}>
                 <FaBars />
             </button>
             <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+                <h2 className="sidebar-title">ЦИФРОВОЙ ПРОФИЛЬ</h2>
                 <Link to="/profile" className="sidebar-link">
                     <FaUser className="mr-2" /> Профиль
                 </Link>

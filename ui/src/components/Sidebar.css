@@ -1,14 +1,23 @@
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: #2d2d2d;
+    background-color: #2d2d2d; /* Темный фон */
     height: 100vh;
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
-    left: 0;
-    transition: width 0.3s ease-in-out;
+    left: -250px; /* Скрываем сайдбар за пределами экрана */
+    transition: left 0.3s ease-in-out; /* Плавный переход */
     z-index: 1000; /* Устанавливаем z-index чтобы sidebar был сверху при раскрытии на мобильных */
+    padding: 20px; /* Отступы для содержимого */
+}
+
+/* Заголовок сайдбара */
+.sidebar-title {
+    color: #ffffff; /* Цвет текста заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
 }
 
 /* Стиль для ссылок */
@@ -17,53 +26,45 @@
     align-items: center;
     padding: 15px 20px;
     text-decoration: none;
-    color: white;
+    color: #b0b0b0; /* Цвет текста ссылок */
     font-size: 16px;
     font-weight: 500;
     transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 
 .sidebar-link:hover {
-    background-color: #424242;
+    background-color: #424242; /* Цвет фона при наведении */
     transform: translateX(5px);
 }
 
 .sidebar-link:active {
-    background-color: #1c1c1c;
+    background-color: #1c1c1c; /* Цвет фона при нажатии */
 }
 
 /* Для мобильных экранов скрываем sidebar по умолчанию */
 @media (max-width: 1024px) {
-    .sidebar {
-        width: 0;
-        overflow: hidden;
-    }
-
     .sidebar.open {
-        width: 250px;
+        left: 0; /* Показываем сайдбар */
     }
 }
 
 /* Кнопка открытия sidebar для маленьких экранов */
-.lg:hidden {
+.sidebar-toggle {
+    position: absolute; /* Позиционируем кнопку */
+    top: 10px; /* Отступ сверху */
+    right: 15px; /* Отступ слева */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем рамку */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+/* Скрываем кнопку на больших экранах */
+.lg\:hidden {
     display: none;
 }
 
 @media (max-width: 1024px) {
-    .lg:hidden {
+    .lg\:hidden {
         display: block;
     }
-}
-
-.sidebar h2 {
-    margin-bottom: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 10px;
 }

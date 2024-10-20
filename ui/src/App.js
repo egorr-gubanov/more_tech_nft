@@ -9,6 +9,7 @@ import EmployeesPage from "./pages/EmployeesPage";
 import AchievementsPage from "./pages/AchievementsPage";
 import { UserProvider } from './pages/UserContext'; // Import UserProvider
 import './App.css';
+import SettingsPage from "./pages/SettingsPage";
 
 const AppContent = ({ isAuthenticated }) => {
     const location = useLocation();
@@ -24,6 +25,7 @@ const AppContent = ({ isAuthenticated }) => {
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/employees" element={<EmployeesPage />} />
                         <Route path="/achievements" element={<AchievementsPage />} />
+                        <Route path="/settings" element={<SettingsPage />} />
                         {/* Other routes */}
                     </Routes>
                 </div>

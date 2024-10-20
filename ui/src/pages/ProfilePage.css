@@ -1,46 +1,54 @@
+/* Profile Page */
 .profile-page {
     display: flex;
-    height: 100vh;
+    flex-direction: column; /* Изменяем направление на колонку для мобильных */
+    height: auto; /* Убираем фиксированную высоту */
     background-color: #e0e0e0;
-}
-
-/*.sidebar {*/
-/*    width: 250px;*/
-/*    background-color: #333;*/
-/*    color: #fff;*/
-/*    padding: 20px;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between;*/
-/*}*/
-
-/*.sidebar h2 {*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.sidebar ul {*/
-/*    list-style: none;*/
-/*    padding: 0;*/
-/*}*/
-
-/*.sidebar li {*/
-/*    margin-bottom: 10px;*/
-/*}*/
-
-.settings {
-    margin-top: auto;
-    padding-top: 20px;
+    max-width: 100%; /* Устанавливаем максимальную ширину 100% */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 20px; /* Добавляем отступы */
 }
 
 .main-content {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
+    max-width: 1200px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto; /* Центрируем содержимое */
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column; /* Изменяем направление на колонку для мобильных */
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    display: flex;
+    justify-content: center; /* Центрируем фото */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Отступ снизу для мобильных */
+}
+
+.profile-details {
+    text-align: center; /* Центрируем текст */
 }
 
 .profile-stats {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Изменяем направление на колонку для мобильных */
+    align-items: center; /* Центрируем элементы */
     margin-bottom: 20px;
 }
 
@@ -49,57 +57,25 @@
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    flex: 1;
-    margin: 0 10px;
-    font-size: 24px;
-    color: #333;
+    width: 100%; /* Занимаем всю ширину */
+    margin: 10px 0; /* Отступы между блоками */
 }
 
-.stat-block span {
-    display: block;
-    font-size: 48px;
-    color: #000;
-}
-
-.profile-info {
-    display: flex;
-    margin-bottom: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.profile-photo img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-}
-
-.profile-details {
-    flex: 1;
-}
-
-.profile-meta {
-    margin-top: 10px;
-    color: #555;
-}
-
-.achievements-section,
 .nfts-section,
+.achievements-section,
 .reviews-section {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    width: 100%; /* Занимаем всю ширину */
 }
 
 .nft-cards {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap; /* Позволяем переносить карточки */
+    gap: 10px; /* Отступы между карточками */
 }
 
 .nft-card {
@@ -107,12 +83,12 @@
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1;
+    flex: 1 1 calc(33.333% - 10px); /* Три карточки в ряд с отступами */
     text-align: center;
 }
 
 table {
-    width: 100%;
+    width: 100%; /* Занимаем всю ширину */
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -127,28 +103,25 @@ th {
     background-color: #f7f7f7;
 }
 
-.meta-mask-icon {
-    font-size: 1.2em;
-}
-
+/* Мобильная адаптация */
 @media (max-width: 768px) {
     .profile-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-details {
-        margin-left: 0;
+        flex-direction: column; /* Изменяем направление на колонку для мобильных */
+        align-items: center; /* Центрируем содержимое */
+        text-align: center; /* Центрируем текст */
     }
 
     .profile-stats {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Изменяем направление на колонку для мобильных */
+        align-items: center; /* Центрируем элементы */
     }
 
     .stat-block {
-        width: 100%;
-        margin: 10px 0;
+        width: 100%; /* Занимаем всю ширину */
+        margin: 10px 0; /* Отступы между блоками */
+    }
+
+    .nft-card {
+        flex: 1 1 100%; /* Одна карточка на всю ширину */
     }
 }
