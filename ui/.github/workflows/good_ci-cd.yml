@@ -1,0 +1,43 @@
+name: good CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Актуальная версия
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Новая версия с улучшенной производительностью и безопасностью
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Автоматическая установка Node.js
+        with:
+          node-version: '20.x'  # Указана актуальная версия Node.js
+
+      - name: Cache node modules
+        uses: actions/cache@v3  # Кэшируем зависимости для ускорения сборки
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps  # Установка зависимостей с учётом возможных конфликтов
+
+      - name: Lint the code
+        run: npm run lint  # Проверка кода линтером
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Run tests
+        run: npm test  # Тесты теперь обязательны для успешного завершения
+
+      - name: Deploy to GitHub Pages
+        if: success()  # Деплой происходит только при успешной сборке и тестах
+        run: npm run deploy
